@@ -1,13 +1,22 @@
 language: python
-python:
-  - "3.3"
-  - "3.4"
-  - "3.5"
-  - "3.5-dev"  # 3.5 development branch
-  - "3.6"
-  - "3.6-dev"  # 3.6 development branch
-  # - "3.7" Cant use stable 3.7 unless we remove all others and do dist: xenial at top
-  - "3.7-dev"  # 3.7 development branch
+matrix:
+  include:
+    - python: "3.3"
+    - python: "3.4"
+    - python: "3.5"
+    - python: "3.5-dev"
+    - python: "3.6-dev"
+    - python: "3.6"
+    - python: "3.7-dev"
+      dist: xenial
+      sudo: true
+    - python: "3.7"
+      dist: xenial
+      sudo: true
+    - python: "3.8-dev"
+      dist: xenial
+      sudo: true
+
 # command to install dependencies
 install:
   - pip install -r requirements.txt
