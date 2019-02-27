@@ -8,10 +8,6 @@ matrix:
   - os: linux
     dist: trusty
     sudo: false
-    python: '2.7'
-  - os: linux
-    dist: trusty
-    sudo: false
     python: '3.3'
   - os: linux
     dist: trusty
@@ -45,21 +41,18 @@ matrix:
     dist: xenial
     sudo: required
     python: '3.8-dev'
-  #- os: linux
-  #  sudo: false
-  #  python: pypy
-  #- os: linux
-  #  sudo: false
-  #  python: pypy3
+  - os: linux
+    sudo: false
+    python: pypy3
   #- os: osx
   #  language: objective-c
   #  env: PYENV_VERSION=2.7.12
   #- os: osx
   #  language: objective-c
   #  env: PYENV_VERSION=3.5.5
-  #- os: osx
-  #  language: objective-c
-  #  env: PYENV_VERSION=3.6.5
+  - os: osx
+    language: objective-c
+    env: PYENV_VERSION=3.6.5
 
 # command to install dependencies
 install:
