@@ -9,7 +9,7 @@ def test_should_allow_size_1_to_size_32_bits():
         for i in range(1, 33):
             BoolArray(size=i)
     except AssertionError:
-        pytest.fail(f"Creating BoolArray size {i} raised AssertionError")
+        pytest.fail("Creating BoolArray size {} raised AssertionError".format(i))
 
 
 def test_should_throw_exception_size_less_than_1():
