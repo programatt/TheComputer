@@ -51,9 +51,9 @@ class BoolArray(object):
     @staticmethod
     def __execute_bitwise_operator(a, b, op):
         ibl = is_boolean_list(b)
-        assert(issubclass(type(b),BoolArray) or ibl)
+        assert(issubclass(type(b), BoolArray) or ibl)
 
-        if(ibl):
+        if ibl:
             size_diff = a.size - len(b)
             b = b.copy()
         else:
