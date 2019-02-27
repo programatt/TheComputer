@@ -1,4 +1,7 @@
 test:
+	pytest
+
+test-watch:
 	ptw -v
 
 coverage:
