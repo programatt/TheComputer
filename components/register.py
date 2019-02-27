@@ -6,3 +6,6 @@ class Register(BoolArray):
         super(Register, self).__init__(bits, size)
         self.name = name
 
+    def __repr__(self):
+        return f"{self.name} => {super().__repr__()}"
+

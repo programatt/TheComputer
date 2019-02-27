@@ -44,3 +44,7 @@ def test_bitwise_xor_should_work():
     r2 = Register("R2", bits=[True, True, False, False])
     r3 = r1 ^ r2
     assert(r3.bits == [False, True, True, False])
+
+def test_repr_correct_format():
+    r1 = Register("R1", bits=[True, False, False, True])
+    assert(str(r1) == "R1 => 1,0,0,1")
