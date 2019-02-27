@@ -41,10 +41,8 @@ matrix:
     dist: xenial
     sudo: required
     python: '3.8-dev'
-# command to install dependencies
 install:
   - pip install -r requirements.txt
-# command to run tests
 script:
   - make coverage-xml
 after_success:
