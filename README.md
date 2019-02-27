@@ -1,2 +1,2 @@
 # TheComputer
-A Simulation Of A System using Boolean Math
+A Simulation Of A CPU using Boolean Math
