@@ -24,7 +24,15 @@ matrix:
   - os: linux
     dist: trusty
     sudo: false
+    python: '3.5-dev'
+  - os: linux
+    dist: trusty
+    sudo: false
     python: '3.5'
+  - os: linux
+    dist: trusty
+    sudo: false
+    python: '3.6-dev'
   - os: linux
     dist: trusty
     sudo: false
@@ -32,7 +40,15 @@ matrix:
   - os: linux
     dist: xenial
     sudo: required
+    python: '3.7-dev'
+  - os: linux
+    dist: xenial
+    sudo: required
     python: '3.7'
+  - os: linux
+    dist: xenial
+    sudo: required
+    python: '3.8-dev'
   #- os: linux
   #  sudo: false
   #  python: pypy
