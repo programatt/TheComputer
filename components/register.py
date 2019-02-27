@@ -7,5 +7,8 @@ class Register(BoolArray):
         self.name = name
 
     def __repr__(self):
-        return f"{self.name} => {super().__repr__()}"
+        return "{} => {}".format(
+            self.name,
+            super().__repr__()
+        )
 
