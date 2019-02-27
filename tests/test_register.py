@@ -4,15 +4,19 @@ from components import Register
 from datastructures import MAX_BITS_SIZE
 
 
-def test_init_has_a_name_and_is_32_bits_long():
+def test_init_name_attribute_from_passed_value():
     r = Register("R1")
     assert(r.name == "R1")
-    assert(r.size == 32)
 
 
 def test_init_size_property_from_passed_value():
     r = Register("R1", size=7)
     assert(r.size == 7)
+
+
+def test_init_default_32_bits_long():
+    r = Register("R1")
+    assert(r.size == 32)
 
 
 def test_init_set_bits():
