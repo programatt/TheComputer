@@ -34,6 +34,7 @@ def test_bits_from_integer():
     b = BoolArray(integer=2)
     assert(a == b)
 
+
 def test_invert_bits():
     a = BoolArray(bits=[True, False, True, False])
     a = ~a
