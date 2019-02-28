@@ -10,7 +10,11 @@ class SimpleALU(object):
 
     @staticmethod
     def single_bit_alu(a, b, carryin):
-        """Calculate SUM, CARRYOUT, LOGICAL AND, LOGICAL OR on inputs a, b, carryin"""
+        """
+        Calculate SUM, CARRYOUT, NEGATE B,
+        LOGICAL AND, LOGICAL OR on
+        inputs a, b, carryin
+        """
         aXORb = a ^ b
         aANDb = a & b
         s = aXORb ^ carryin
@@ -28,16 +32,34 @@ class SimpleALU(object):
                (cw0 and not cw1 and not cw2 and notb)
 
     @staticmethod
-    def multi_bit_alu(a, b, control_word):
-        assert(issubclass(type(a), BoolArray) and issubclass(type(b), BoolArray))
+    def multi_bit_alu(a, b, cw):
+        """
+        Run Single Stage ALU for each bit in registers
+        a, b and return output using control word cw
+        :param a: Register A
+        :param b: Register B
+        :param cw: Operation Output
+        :return: BoolArray
+        """
+        assert(
+            issubclass(type(a), BoolArray) and
+            issubclass(type(b), BoolArray)
+        )
         assert(a.size == b.size)
         cin = False
         output = []
-        for bita, bitb in zip(a.lowhighbits, b.lowhighbits):
-            cout, s, andb, aorb, a, notb = SimpleALU.single_bit_alu(bita, bitb, cin)
-            out = SimpleALU.multiplex_output(control_word.bits, s, andb, aorb, a, notb)
+        for ba, bb in zip(a.lowhighbits, b.lowhighbits):
+            cout, s, aab, aob, a, notb = SimpleALU.single_bit_alu(
+                ba, bb, cin
+            )
+            out = SimpleALU.multiplex_output(
+                cw.bits, s, aab, aob, a, notb
+            )
             output.append(out)
             cin = cout
+
+        # F(A, B, C) = (D, E)
+        # ([A], [B], 0) => F => [E]
 
         # We added the bits low to high, but it's stored high to low
         output.reverse()

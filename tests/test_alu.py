@@ -10,7 +10,7 @@ def b2b(lst):
     return [[True if b == 1 else False for b in bits] for bits in lst]
 
 
-def test_simplealue_single_bit_alu_truth_table():
+def test_simplealu_single_bit_alu_truth_table():
     truth_table = b2b([
        # A, B, CI, CO, S, A&B, A|B, A, ~B
         [0, 0, 0,  0,  0,  0,   0,  0,  1],
