@@ -27,6 +27,7 @@ def test_should_throw_exception_if_bits_not_list_of_booleans():
 def test_should_throw_exception_if_bits_length_less_that_1():
     pytest.raises(AssertionError, lambda: BoolArray(bits=[]))
 
+
 def test_bits_from_integer():
     a = BoolArray(size=MAX_BITS_SIZE)
     a.bits[-2] = True
@@ -42,13 +43,16 @@ def test_eq_compares_bits():
     assert(b != c)
     assert(a != c)
 
+
 def test_eq_undefined():
     a = BoolArray(bits=[True, False])
     pytest.raises(ValueError, lambda: a == "[True, False]")
 
+
 def test_eq_integer():
     a = BoolArray(bits=[True, False])
     assert(a == 2)
+
 
 def test_repr_shows_bits_right_to_left():
     b = BoolArray(bits=[True, False, True, False])

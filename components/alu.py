@@ -65,5 +65,3 @@ class SimpleALU(object):
         output.reverse()
 
         return BoolArray(bits=output)
-
-

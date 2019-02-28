@@ -1,16 +1,20 @@
 def is_boolean_list(lst):
     return type(lst) == list and all([type(i) == bool for i in lst])
 
+
 def assert_boolean_list(lst):
     assert(1 <= len(lst) <= MAX_BITS_SIZE)
     assert(is_boolean_list(lst))
+
 
 def bits_from_integer(n):
     leftpaddedzeroesformat = "#0{}b".format(MAX_BITS_SIZE)
     value = format(n, leftpaddedzeroesformat)
     return [True if b == "1" else False for b in value]
 
-MAX_BITS_SIZE=32
+
+MAX_BITS_SIZE = 32
+
 
 class BoolArray(object):
     def __init__(self, integer=None, bits=None, size=MAX_BITS_SIZE):
@@ -50,7 +54,8 @@ class BoolArray(object):
             return self.bits == other
         if klass == int:
             return self.__int__() == other
-        raise ValueError("BoolArray equality comparison undefined with {}".format(klass))
+        raise ValueError(
+            "BoolArray equality comparison undefined with {}".format(klass))
 
     def __invert__(self):
         return BoolArray(bits=[not bit for bit in self.bits])

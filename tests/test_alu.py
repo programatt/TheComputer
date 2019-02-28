@@ -12,7 +12,7 @@ def b2b(lst):
 
 def test_simplealu_single_bit_alu_truth_table():
     truth_table = b2b([
-       # A, B, CI, CO, S, A&B, A|B, A, ~B
+        # A, B, CI, CO, S, A&B, A|B, A, ~B
         [0, 0, 0,  0,  0,  0,   0,  0,  1],
         [0, 0, 1,  0,  1,  0,   0,  0,  1],
         [0, 1, 0,  0,  1,  0,   1,  0,  0],
@@ -37,7 +37,7 @@ def test_simplealu_multiplex_3in_5out():
     :return:
     """
     truth_table = [
-      # cw0, cw1, cw2, s, a&b, a|b, a, ~b, out   output column
+        # cw0, cw1, cw2, s, a&b, a|b, a, ~b, out   output column
         [0,   0,   0,  1,  0,   0,  0, 0,   1],  # s
         [0,   0,   0,  0,  0,   0,  0, 0,   0],  # s
         [0,   0,   1,  0,  1,   0,  0, 0,   1],  # a&b
