@@ -1,0 +1,1 @@
+from .boolarray import BoolArray, MAX_BITS_SIZE
