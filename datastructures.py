@@ -5,10 +5,19 @@ def assert_boolean_list(lst):
     assert(1 <= len(lst) <= MAX_BITS_SIZE)
     assert(is_boolean_list(lst))
 
+def bits_from_integer(n):
+    leftpaddedzeroesformat = "#0{}b".format(MAX_BITS_SIZE)
+    value = format(n, leftpaddedzeroesformat)
+    return [True if b == "1" else False for b in value]
+
 MAX_BITS_SIZE=32
 
 class BoolArray(object):
-    def __init__(self, bits=None, size=MAX_BITS_SIZE):
+    def __init__(self, integer=None, bits=None, size=MAX_BITS_SIZE):
+        if integer:
+            # assert 2**32 >= integer
+            bits = bits_from_integer(integer)
+            size = len(bits)
         assert (1 <= size <= MAX_BITS_SIZE)
         # because empty lists are not Truthy :(
         # noinspection PySimplifyBooleanCheck
@@ -22,9 +31,29 @@ class BoolArray(object):
             self.bits = [False for _ in range(0, size)]
             self.size = len(self.bits)
 
+    @property
+    def lowhighbits(self):
+        lowhigh = self.bits.copy()
+        lowhigh.reverse()
+        return lowhigh
+
     def __repr__(self):
         """Display Bits Right To Left (High Order To Low Order)"""
         return ",".join(self.__tobits())
+
+    def __eq__(self, other):
+        """Equals only defined between other BoolArrays or integers"""
+        klass = type(other)
+        if issubclass(klass, BoolArray):
+            return self.bits == other.bits
+        if is_boolean_list(other):
+            return self.bits == other
+        if klass == int:
+            return self.__int__() == other
+        raise ValueError("BoolArray equality comparison undefined with {}".format(klass))
+
+    def __invert__(self):
+        return BoolArray(bits=[not bit for bit in self.bits])
 
     def __int__(self):
         """Convert to integer by interpreting bits as base 2 number high order to low order"""
