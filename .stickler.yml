@@ -1,7 +1,7 @@
 linters:
   flake8:
     python: 3
-    ignore: 'E262,E265'
+    ignore: 'E262,E265,E241'
     max-line-length: 80
     max-complexity: 20
     fixer: true
