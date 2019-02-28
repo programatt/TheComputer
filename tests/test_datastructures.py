@@ -3,10 +3,9 @@ import pytest
 from datastructures import BoolArray, MAX_BITS_SIZE
 
 
-def test_should_allow_size_1_to_size_32_bits():
-    # noinspection PyBroadException
+def test_should_allow_size_1_to_size_MAX_BITS_SIZE_bits():
     try:
-        for i in range(1, 33):
+        for i in range(1, MAX_BITS_SIZE + 1):
             BoolArray(size=i)
     except AssertionError:
         pytest.fail("Creating BoolArray size {} raised AssertionError".format(i))
