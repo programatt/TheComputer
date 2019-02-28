@@ -29,13 +29,16 @@ class SimpleALU(object):
 
     @staticmethod
     def multi_bit_alu(a, b, control_word):
-        assert(issubclass(type(a), BoolArray) and issubclass(type(b), BoolArray))
+        assert(issubclass(type(a), BoolArray)
+               and issubclass(type(b), BoolArray))
         assert(a.size == b.size)
         cin = False
         output = []
         for bita, bitb in zip(a.lowhighbits, b.lowhighbits):
-            cout, s, andb, aorb, a, notb = SimpleALU.single_bit_alu(bita, bitb, cin)
-            out = SimpleALU.multiplex_output(control_word.bits, s, andb, aorb, a, notb)
+            cout, s, andb, aorb, a, notb = SimpleALU.single_bit_alu(
+                bita, bitb, cin)
+            out = SimpleALU.multiplex_output(
+                control_word.bits, s, andb, aorb, a, notb)
             output.append(out)
             cin = cout
 
@@ -43,5 +46,3 @@ class SimpleALU(object):
         output.reverse()
 
         return BoolArray(bits=output)
-
-
