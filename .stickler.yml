@@ -6,4 +6,4 @@ linters:
     max-complexity: 20
     fixer: true
 fixers:
-  enable: true
+  enable: false
