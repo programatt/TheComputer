@@ -11,7 +11,7 @@ idna==2.8
 more-itertools==6.0.0
 pathtools==0.1.2
 pluggy==0.9.0
-py==1.8.0
+py==1.8.1
 pytest==4.3.0
 pytest-cov==2.6.1
 pytest-watch==4.2.0
