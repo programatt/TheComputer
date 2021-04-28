@@ -1,0 +1,24 @@
+version: 2
+updates:
+- package-ecosystem: pip
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "11:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: watchdog
+    versions:
+    - 1.0.2
+    - 2.0.0
+    - 2.0.1
+    - 2.0.2
+  - dependency-name: urllib3
+    versions:
+    - 1.26.3
+  - dependency-name: coverage
+    versions:
+    - "5.4"
+  - dependency-name: pytest
+    versions:
+    - 6.2.2
